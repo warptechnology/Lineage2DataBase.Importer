@@ -1,4 +1,7 @@
 
+using Lineage2DataBaseImporter.Services.Abstractions;
+using Lineage2DataBaseImporter.Services.Services;
+
 namespace Lineage2DataBaseImporter
 {
     public class Program
@@ -12,6 +15,13 @@ namespace Lineage2DataBaseImporter
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<ISkillReaderService, SkillReaderService>();
+
+            // configure options appsettings.json
+            builder.Services.Configure<ImporterOptions>
+                (builder.Configuration.GetSection("ImporterOptions"));
 
             var app = builder.Build();
 
@@ -21,6 +31,9 @@ namespace Lineage2DataBaseImporter
                 app.MapOpenApi();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            app.MapControllers();
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

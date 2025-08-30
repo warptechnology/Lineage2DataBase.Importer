@@ -1,11 +1,6 @@
-﻿// using System.Xml.Serialization;
-// XmlSerializer serializer = new XmlSerializer(typeof(List));
-// using (StringReader reader = new StringReader(xml))
-// {
-//    var test = (List)serializer.Deserialize(reader);
-// }
+﻿using System.Xml.Serialization;
 
-using System.Xml.Serialization;
+namespace Lineage2DataBaseImporter.Services.Models.Skills;
 
 [XmlRoot(ElementName = "table")]
 public class Table
@@ -112,13 +107,13 @@ public class Effect
     public string Name { get; set; }
 
     [XmlAttribute(AttributeName = "time")]
-    public int Time { get; set; }
+    public string Time { get; set; }
 
     [XmlAttribute(AttributeName = "val")]
-    public int Val { get; set; }
+    public string Val { get; set; }
 
     [XmlAttribute(AttributeName = "stackOrder")]
-    public int StackOrder { get; set; }
+    public string StackOrder { get; set; }
 
     [XmlAttribute(AttributeName = "stackType")]
     public string StackType { get; set; }
@@ -127,7 +122,7 @@ public class Effect
     public List<Mul> Mul { get; set; }
 
     [XmlAttribute(AttributeName = "effectPower")]
-    public int EffectPower { get; set; }
+    public string EffectPower { get; set; }
 
     [XmlAttribute(AttributeName = "effectType")]
     public string EffectType { get; set; }
@@ -176,7 +171,7 @@ public class Mul
     public string Stat { get; set; }
 
     [XmlAttribute(AttributeName = "val")]
-    public double Val { get; set; }
+    public string Val { get; set; }
 
     [XmlElement(ElementName = "using")]
     public Using Using { get; set; }
@@ -212,7 +207,7 @@ public class Add
     public string Stat { get; set; }
 
     [XmlAttribute(AttributeName = "val")]
-    public int Val { get; set; }
+    public string Val { get; set; }
 
     [XmlElement(ElementName = "using")]
     public Using Using { get; set; }
@@ -229,7 +224,7 @@ public class AddMul
     public string Stat { get; set; }
 
     [XmlAttribute(AttributeName = "val")]
-    public int Val { get; set; }
+    public string Val { get; set; }
 }
 
 [XmlRoot(ElementName = "using")]
@@ -251,7 +246,7 @@ public class Basemul
     public string Stat { get; set; }
 
     [XmlAttribute(AttributeName = "val")]
-    public double Val { get; set; }
+    public string Val { get; set; }
 
     [XmlElement(ElementName = "player")]
     public Player Player { get; set; }
@@ -265,19 +260,19 @@ public class Player
 {
 
     [XmlAttribute(AttributeName = "riding")]
-    public bool Riding { get; set; }
+    public string Riding { get; set; }
 
     [XmlAttribute(AttributeName = "flying")]
-    public bool Flying { get; set; }
+    public string Flying { get; set; }
 
     [XmlAttribute(AttributeName = "hp")]
     public int Hp { get; set; }
 
     [XmlAttribute(AttributeName = "front")]
-    public bool Front { get; set; }
+    public string Front { get; set; }
 
     [XmlAttribute(AttributeName = "behind")]
-    public bool Behind { get; set; }
+    public string Behind { get; set; }
 }
 
 [XmlRoot(ElementName = "cond")]
@@ -302,7 +297,7 @@ public class Sub
     public string Stat { get; set; }
 
     [XmlAttribute(AttributeName = "val")]
-    public int Val { get; set; }
+    public string Val { get; set; }
 }
 
 [XmlRoot(ElementName = "subDiv")]
@@ -313,7 +308,7 @@ public class SubDiv
     public string Stat { get; set; }
 
     [XmlAttribute(AttributeName = "val")]
-    public int Val { get; set; }
+    public string Val { get; set; }
 }
 
 [XmlRoot(ElementName = "and")]
@@ -325,7 +320,7 @@ public class And
 }
 
 [XmlRoot(ElementName = "list")]
-public class List
+public class SkillList
 {
 
     [XmlElement(ElementName = "skill")]
